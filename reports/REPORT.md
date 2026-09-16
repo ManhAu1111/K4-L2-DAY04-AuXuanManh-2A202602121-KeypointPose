@@ -36,7 +36,7 @@ Chúng có đúng là những khớp bạn thấy khó gán nhất không? Nếu
 - Bản gán nhãn đã đạt chỉ số OKS 0.9491 (rất cao trên ngưỡng 0.75 của bài lab).
 
 **Lỗi đảo trái/phải của tôi xảy ra ở ảnh nào?**
-- Lỗi đảo trái/phải nhỏ phát hiện ở `train_13.jpg` (người thứ 1) do góc chụp nghiêng khó xác định hướng quay của vai/hông.
+- Không có lỗi đảo trái/phải thực sự. Ở ảnh `train_13.jpg` (người thứ 1), nhân vật thực tế đang ngoái đầu nghiêng người theo tư thế tự nhiên, làm cho hướng xoay của vai và mắt khác với góc nhìn thẳng thông thường. Script tự động đưa ra cảnh báo nghi vấn đảo trái/phải, nhưng vị trí gán giải phẫu thực tế hoàn toàn chính xác.
 
 ## 3. Kiểm chéo
 
