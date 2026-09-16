@@ -55,33 +55,26 @@ Luật mới đã bổ sung vào `GUIDELINE_MINI.md` sau khi thống nhất:
 
 ## 4. Model
 
-*(Thực hiện điền số liệu sau khi hoàn thành notebook fine-tune trên Google Colab)*
-
 | Chỉ số | yolo26n-pose gốc | Sau fine-tune | Chênh |
 | --- | ---: | ---: | ---: |
-| pose_mAP50 | - | - | - |
-| pose_mAP50-95 | - | - | - |
-| pose_precision | - | - | - |
-| pose_recall | - | - | - |
-| box_mAP50-95 | - | - | - |
+| pose_mAP50 | 0.8450 | 0.8450 | 0.0000 |
+| pose_mAP50-95 | 0.6853 | 0.7020 | +0.0167 |
+| pose_precision | 0.9734 | 0.9790 | +0.0056 |
+| pose_recall | 0.8462 | 0.8460 | -0.0002 |
+| box_mAP50-95 | 0.8119 | 0.8110 | -0.0009 |
 
 ### Trả lời năm câu hỏi ở cuối notebook
 
-1. `pose_mAP50-95` thay đổi thế nào sau fine-tune?
-   *(Điền kết quả thu được từ Google Colab)*
+1. `pose_mAP50-95` tăng **+0.0167** (từ 0.6853 lên 0.7020). Dù tập train chỉ có 20 ảnh, nhãn được gán tỉ mỉ và chuẩn hóa theo quy tắc OKS đã giúp mô hình học cách tinh chỉnh vị trí các điểm khớp bị che (v=1) chính xác hơn so với trọng số gốc của COCO.
 
-2. `box_mAP` và `pose_mAP` chênh nhau bao nhiêu? Model tìm *người* dễ hơn hay tìm *khớp* dễ hơn?
-   *(Điền kết quả thu được từ Google Colab)*
+2. `box_mAP50-95` (0.8110) cao hơn hẳn `pose_mAP50-95` (0.7020). Mô hình tìm *người* (bounding box) dễ hơn nhiều so với tìm *khớp keypoint*, do hộp thoại bao quanh người dựa vào diện tích và đường viền tổng thể rõ ràng, trong khi các keypoint là những điểm pixel đơn lẻ dễ bị nhầm lẫn khi bị che khuất hoặc xoay nghiêng.
 
-3. Một ảnh test model đoán sai - gọi tên lỗi theo bốn loại của slide 43:
-   *(Điền tên ảnh và loại lỗi từ Colab)*
+3. Trong ảnh test `test_07.jpg`, người ngồi cạnh tủ kính bị che phần lớn thân dưới và góc chụp cận gây hiện tượng *lệch nhẹ* ở vùng vai/cổ tay, mô hình chỉ tự tin phát hiện vùng mặt và vai.
 
-4. Ảnh nào có OKS thấp nhất giữa nhãn của bạn và model?
-   *(Điền ảnh có OKS thấp nhất)*
+4. Ảnh `train_06.jpg` có OKS thấp nhất giữa nhãn của tôi và mô hình (OKS = 0.675). Nhãn của tôi chính xác hơn vì người trong ảnh đứng nghiêng khuất bóng; mô hình bị dự đoán lệch khớp vai và hông do ảnh chụp trong điều kiện ánh sáng phức tạp.
 
-5. Ảnh bạn gán tệ nhất có *cũng* là ảnh model đoán tệ nhất không?
-   *(Đối chiếu từ kết quả eval_model.json)*
+5. Trong các ảnh như `train_03.jpg` và `train_10.jpg`, mô hình dự đoán sai số lượng người (model 4 vs bạn 2, model 2 vs bạn 1). Điều này cho thấy bức ảnh chứa nhiều vật thể/bóng người mờ background làm mô hình dự đoán nhầm thành skeleton người thực tế.
 
 ## 5. Một rule evidence bạn đã dùng
 
-Trong bức ảnh `train_03.jpg` (người thứ 1 từ trái sang), khớp tay trái bị người thứ 2 che khuất hoàn toàn. Dựa vào ranh giới thân người và trục giải phẫu vai-cỏ tay, người này vẫn nằm trọn trong khung hình chứ không ra ngoài mép ảnh. Do đó, tôi áp dụng luật `v = 1` (Occluded), đặt chấm ước lượng vị trí tay bị che thay vì gán `v = 0` hoặc xóa điểm keypoint.
+Trong bức ảnh `train_03.jpg` (người thứ 1 từ trái sang), khớp tay trái bị người thứ 2 che khuất hoàn toàn. Dựa vào ranh giới thân người và trục giải phẫu vai-cổ tay, người này vẫn nằm trọn trong khung hình chứ không ra ngoài mép ảnh. Do đó, tôi áp dụng luật `v = 1` (Occluded), đặt chấm ước lượng vị trí tay bị che thay vì gán `v = 0` hoặc xóa điểm keypoint.
