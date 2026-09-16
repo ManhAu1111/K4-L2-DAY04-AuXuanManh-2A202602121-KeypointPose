@@ -58,16 +58,16 @@ Luật mới đã bổ sung vào `GUIDELINE_MINI.md` sau khi thống nhất:
 | Chỉ số | yolo26n-pose gốc | Sau fine-tune | Chênh |
 | --- | ---: | ---: | ---: |
 | pose_mAP50 | 0.8450 | 0.8450 | 0.0000 |
-| pose_mAP50-95 | 0.6853 | 0.7020 | +0.0167 |
-| pose_precision | 0.9734 | 0.9790 | +0.0056 |
-| pose_recall | 0.8462 | 0.8460 | -0.0002 |
-| box_mAP50-95 | 0.8119 | 0.8110 | -0.0009 |
+| pose_mAP50-95 | 0.6853 | 0.6908 | +0.0055 |
+| pose_precision | 0.9734 | 0.9792 | +0.0058 |
+| pose_recall | 0.8462 | 0.8462 | 0.0000 |
+| box_mAP50-95 | 0.8119 | 0.8041 | -0.0078 |
 
 ### Trả lời năm câu hỏi ở cuối notebook
 
-1. `pose_mAP50-95` tăng **+0.0167** (từ 0.6853 lên 0.7020). Dù tập train chỉ có 20 ảnh, nhãn được gán tỉ mỉ và chuẩn hóa theo quy tắc OKS đã giúp mô hình học cách tinh chỉnh vị trí các điểm khớp bị che (v=1) chính xác hơn so với trọng số gốc của COCO.
+1. `pose_mAP50-95` tăng **+0.0055** (từ 0.6853 lên 0.6908). Dù tập train chỉ có 20 ảnh, nhãn được gán tỉ mỉ và chuẩn hóa theo quy tắc OKS đã giúp mô hình học cách tinh chỉnh vị trí các điểm khớp bị che (v=1) chính xác hơn so với trọng số gốc của COCO.
 
-2. `box_mAP50-95` (0.8110) cao hơn hẳn `pose_mAP50-95` (0.7020). Mô hình tìm *người* (bounding box) dễ hơn nhiều so với tìm *khớp keypoint*, do hộp thoại bao quanh người dựa vào diện tích và đường viền tổng thể rõ ràng, trong khi các keypoint là những điểm pixel đơn lẻ dễ bị nhầm lẫn khi bị che khuất hoặc xoay nghiêng.
+2. `box_mAP50-95` (0.8041) cao hơn hẳn `pose_mAP50-95` (0.6908). Mô hình tìm *người* (bounding box) dễ hơn nhiều so với tìm *khớp keypoint*, do hộp thoại bao quanh người dựa vào diện tích và đường viền tổng thể rõ ràng, trong khi các keypoint là những điểm pixel đơn lẻ dễ bị nhầm lẫn khi bị che khuất hoặc xoay nghiêng.
 
 3. Trong ảnh test `test_07.jpg`, người ngồi cạnh tủ kính bị che phần lớn thân dưới và góc chụp cận gây hiện tượng *lệch nhẹ* ở vùng vai/cổ tay, mô hình chỉ tự tin phát hiện vùng mặt và vai.
 

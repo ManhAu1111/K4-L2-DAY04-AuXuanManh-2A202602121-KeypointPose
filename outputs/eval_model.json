@@ -9,18 +9,18 @@
   },
   "finetuned": {
     "pose_mAP50": 0.845,
-    "pose_mAP50_95": 0.702,
-    "pose_precision": 0.979,
-    "pose_recall": 0.846,
-    "box_mAP50": 0.961,
-    "box_mAP50_95": 0.811
+    "pose_mAP50_95": 0.6908,
+    "pose_precision": 0.9792,
+    "pose_recall": 0.8462,
+    "box_mAP50": 0.96,
+    "box_mAP50_95": 0.8041
   },
   "delta": {
     "pose_mAP50": 0.0,
-    "pose_mAP50_95": 0.0167,
-    "pose_precision": 0.0056,
-    "pose_recall": -0.0002,
-    "box_mAP50": -0.0175,
-    "box_mAP50_95": -0.0009
+    "pose_mAP50_95": 0.0055,
+    "pose_precision": 0.0058,
+    "pose_recall": 0.0,
+    "box_mAP50": -0.0185,
+    "box_mAP50_95": -0.0078
   }
 }
