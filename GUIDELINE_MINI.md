@@ -16,12 +16,12 @@
 
 | Tình huống | Luật nhóm chọn | Vì sao |
 | --- | --- | --- |
-| Hông của người mặc quần áo dài | Đặt chấm ở vị trí giải phẫu<br><img src="reports/assets/rule_hong_quan_dai.jpg" width="150"> | Quần áo là trang phục tự nhiên của người, không làm mất vị trí giải phẫu hông |
-| Tai bị tóc hoặc mũ bảo hiểm che một phần | Đặt chấm ước lượng góc tai, gán `v = 1`<br><img src="reports/assets/rule_tai_bi_che.jpg" width="150"> | Mũ/tóc che bề mặt tai nhưng vẫn nằm trong ảnh và ước lượng được |
-| Người bị cắt ở mép ảnh (chỉ thấy từ hông trở lên) | Nằm ngoài mép ảnh gán `v = 0` (Outside), KHÔNG đặt chấm<br><img src="reports/assets/rule_cat_mep_anh.jpg" width="150"> | Điểm nằm ngoài phạm vi quan sát của bức ảnh |
-| Cổ tay nằm sau tay lái / sau thân mình | Đặt chấm ước lượng, gán cờ `v = 1`<br><img src="reports/assets/rule_co_tay_sau_lung.jpg" width="150"> | Khớp bị che bởi vật thể/thân mình nhưng vẫn thuộc cơ thể |
-| Hai người chồng lên nhau | Ước lượng phần bị che, gán `v = 1`<br><img src="reports/assets/rule_hai_nguoi_chong_len_nhau.jpg" width="150"> | Đảm bảo tính nhất quán của mô hình skeleton |
-| Người quá nhỏ / quá mờ | Không thể xác định cấu trúc giải phẫu thì bỏ qua<br><img src="reports/assets/rule_nguoi_qua_nho.jpg" width="150"> | Tránh đưa dữ liệu nhiễu vào mô hình |
+| Hông của người mặc quần áo dài | Đặt chấm ở vị trí giải phẫu<br><img src="reports/assets/Hông của người mặc quần áo dài.png" width="300"> | Quần áo là trang phục tự nhiên của người, không làm mất vị trí giải phẫu hông |
+| Tai bị tóc hoặc mũ bảo hiểm che một phần | Đặt chấm ước lượng góc tai, gán `v = 1`<br><img src="reports/assets/rule_tai_bi_che.jpg" width="300"> | Mũ/tóc che bề mặt tai nhưng vẫn nằm trong ảnh và ước lượng được |
+| Người bị cắt ở mép ảnh (chỉ thấy từ hông trở lên) | Nằm ngoài mép ảnh gán `v = 0` (Outside), KHÔNG đặt chấm<br><img src="reports/assets/Người bị cắt ở mép ảnh (chỉ thấy từ hông trở lên).png" width="300"> | Điểm nằm ngoài phạm vi quan sát của bức ảnh |
+| Cổ tay nằm sau tay lái / sau thân mình | Đặt chấm ước lượng, gán cờ `v = 1`<br><img src="reports/assets/Cổ tay nằm sau tay lái.png" width="300"> | Khớp bị che bởi vật thể/thân mình nhưng vẫn thuộc cơ thể |
+| Hai người chồng lên nhau | Ước lượng phần bị che, gán `v = 1`<br><img src="reports/assets/rule_hai_nguoi_chong_len_nhau.jpg" width="300"> | Đảm bảo tính nhất quán của mô hình skeleton |
+| Người quá nhỏ / quá mờ | Không thể xác định cấu trúc giải phẫu thì bỏ qua<br><img src="reports/assets/người quá mờ.png" width="300"> | Tránh đưa dữ liệu nhiễu vào mô hình |
 
 ## 3. Ba ca mơ hồ đã gặp (bắt buộc, ghi ít nhất 3)
 
